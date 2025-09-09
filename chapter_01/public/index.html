@@ -16,7 +16,7 @@
     <div class="container">
         <h1>Simple Request Example</h1>
         <button hx-get="/users" hx-target="#users" hx-vals='{"limit":3}' hx-indicator="#loading"
-            class="btn btn-primary">
+            hx-confirm="Do you want to proceed with fetching users?" class="btn btn-primary">
             Fetch Some Stuff
         </button>
         <div id="loading" class="htmx-indicator spinner-border" role="status">
