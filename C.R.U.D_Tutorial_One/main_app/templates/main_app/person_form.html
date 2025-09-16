@@ -1,0 +1,28 @@
+<!-- main_app/templates/main_app/person_form.html -->
+<li id="person-{{ person.id }}" class="list-group-item">
+ <form hx-post="{% url 'person_create' %}" 
+      hx-target="#personList" 
+      hx-swap="beforeend" 
+      method="POST"
+      enctype="multipart/form-data"
+      class="row g-2">
+    {% csrf_token %}
+    <div class="col-12">
+        <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+    </div>
+    <div class="col-12">
+        <input type="email" name="email" class="form-control" placeholder="Email" required>
+    </div>
+    <div class="col-12">
+        <input type="text" name="phone" class="form-control" placeholder="Phone Number" required>
+    </div>
+    <div class="col-12">
+        <input type="text" name="major" class="form-control" placeholder="Subject Major">
+    </div>
+    <div class="col-12">
+        <input type="file" name="profile_image" class="form-control">
+    </div>
+    <div class="col-12 d-grid mt-3">
+        <button type="submit" class="btn btn-success">Add Person</button>
+    </div>
+</form>

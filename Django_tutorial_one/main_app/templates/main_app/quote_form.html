@@ -1,0 +1,18 @@
+<!-- main_app/templates/main_app/quote_form.html -->
+<li id="quote-{{ quote.id }}" class="list-group-item">
+    <form hx-post="{% url 'quote_update' quote.id %}" 
+          hx-target="#quote-{{ quote.id }}" 
+          hx-swap="outerHTML" 
+          class="row g-2">
+        {% csrf_token %}
+        <div class="col-12 col-md-6">
+            <input type="text" name="text" value="{{ quote.text }}" class="form-control" required>
+        </div>
+        <div class="col-12 col-md-4">
+            <input type="text" name="author" value="{{ quote.author }}" class="form-control" required>
+        </div>
+        <div class="col-12 col-md-2 d-grid">
+            <button type="submit" class="btn btn-success btn-sm">💾 Save</button>
+        </div>
+    </form>
+</li>
