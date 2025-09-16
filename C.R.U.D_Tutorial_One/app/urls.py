@@ -19,11 +19,15 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.http import JsonResponse
 
+def chrome_devtools(request):
+    return JsonResponse({"status": "not implemented"})
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('main_app.urls'))
+    path('', include('main_app.urls')),
+    path(".well-known/appspecific/com.chrome.devtools.json", chrome_devtools)
 ]
 
 if settings.DEBUG:

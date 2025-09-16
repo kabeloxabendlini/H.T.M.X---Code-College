@@ -1,6 +1,7 @@
 # main_app/views.py
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse, HttpResponseBadRequest
+from django.http import HttpResponse
+from django.template.loader import render_to_string
 from .models import Person
 from .forms import PersonForm
 
@@ -14,16 +15,9 @@ def person_create(request):
         form = PersonForm(request.POST, request.FILES)
         if form.is_valid():
             person = form.save()
-            return render(request, "main_app/person_item.html", {"person": person})
-        else:
-            return HttpResponseBadRequest("Invalid form data")
-    return HttpResponse(status=405)
-
-# Edit form
-def person_edit(request, pk):
-    person = get_object_or_404(Person, pk=pk)
-    return render(request, "main_app/person_form.html", {"person": person})
-
+            html = render_to_string("main_app/person_item.html", {"person": person})
+            return HttpResponse(html)
+    return HttpResponse("Error creating person", status=400)
 
 def person_update(request, pk):
     person = get_object_or_404(Person, pk=pk)
