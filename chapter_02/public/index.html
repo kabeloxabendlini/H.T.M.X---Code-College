@@ -1,85 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>BMI Calculator</title>
+  <meta charset="UTF-8"> <!-- Character encoding -->
+  <title>BMI Calculator</title> <!-- Page title -->
+
+  <!-- Internal CSS for styling the page -->
   <style>
+    /* Style the body with gradient background and center the container */
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+      font-family: Arial, sans-serif; /* Set font */
+      background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%); /* Gradient background */
       display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
+      justify-content: center; /* Center horizontally */
+      align-items: center;     /* Center vertically */
+      height: 100vh;           /* Full viewport height */
+      margin: 0;               /* Remove default margin */
     }
 
+    /* Container for the form */
     .container {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      width: 320px;
+      background: #fff; /* White card background */
+      padding: 2rem;    /* Inner spacing */
+      border-radius: 12px; /* Rounded corners */
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+      text-align: center;  /* Center text */
+      width: 320px;        /* Fixed width */
     }
 
+    /* Heading styling */
     h1 {
       margin-bottom: 1rem;
       color: #333;
     }
 
+    /* Label styling */
     label {
-      display: block;
-      margin-top: 1rem;
-      font-weight: bold;
-      text-align: left;
+      display: block;      /* Each label on a separate line */
+      margin-top: 1rem;    /* Space above label */
+      font-weight: bold;   /* Bold text */
+      text-align: left;    /* Align text to left */
     }
 
+    /* Input fields styling */
     input {
-      width: 100%;
-      padding: 0.5rem;
-      margin-top: 0.5rem;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
+      width: 100%;         /* Full width of container */
+      padding: 0.5rem;     /* Inner padding */
+      margin-top: 0.5rem;  /* Space above input */
+      border-radius: 6px;  /* Rounded edges */
+      border: 1px solid #ccc; /* Light gray border */
+      font-size: 1rem;     /* Font size */
     }
 
+    /* Button styling */
     button {
-      margin-top: 1.5rem;
-      padding: 0.7rem 1.5rem;
-      background: #4CAF50;
-      color: white;
+      margin-top: 1.5rem;  /* Space above button */
+      padding: 0.7rem 1.5rem; /* Inner spacing */
+      background: #4CAF50; /* Green background */
+      color: white;         /* White text */
       font-size: 1rem;
       border: none;
       border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s ease;
+      cursor: pointer;      /* Pointer on hover */
+      transition: background 0.3s ease; /* Smooth hover transition */
     }
 
+    /* Button hover effect */
     button:hover {
       background: #45a049;
     }
 
+    /* Small note below the form */
     .note {
       margin-top: 1rem;
       font-size: 0.9rem;
-      color: #666;
+      color: #666; /* Gray text */
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <h1>BMI Calculator</h1>
+
+    <!-- BMI form -->
     <form action="/calculate" method="POST">
+      <!-- Height input -->
       <label for="height">Height (meters)</label>
       <input type="number" step="0.01" id="height" name="height" required>
+      <!-- step="0.01" allows decimal input -->
 
+      <!-- Weight input -->
       <label for="weight">Weight (kg)</label>
       <input type="number" step="0.1" id="weight" name="weight" required>
+      <!-- step="0.1" allows decimal input -->
 
+      <!-- Submit button -->
       <button type="submit">Calculate BMI</button>
     </form>
+
+    <!-- Additional note for user -->
     <p class="note">Enter your height and weight to check your BMI category.</p>
   </div>
 </body>
+
 </html>
