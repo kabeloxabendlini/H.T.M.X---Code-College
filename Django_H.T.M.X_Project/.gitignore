@@ -20,3 +20,6 @@ media/
 # OS
 .DS_Store
 Thumbs.dbe__
+
+# node_modules
+node_modules
