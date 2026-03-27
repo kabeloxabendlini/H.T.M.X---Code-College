@@ -1,0 +1,26 @@
+<!-- main_app/templates/main_app/quote_item.html -->
+<li id="quote-{{ quote.id }}" class="list-group-item d-flex justify-content-between align-items-center">
+    <div>
+        <span class="fw-semibold">“{{ quote.text }}”</span><br>
+        <small class="text-muted">— {{ quote.author }}</small>
+    </div>
+    <div></div>
+        <!-- Edit button -->
+        <button class="btn btn-sm btn-outline-primary"
+                hx-get="{% url 'quote_edit' quote.id %}"
+                hx-target="#quote-{{ quote.id }}"
+                hx-swap="outerHTML">
+            ✏️ Edit
+        </button>
+    <div>
+        {% csrf_token %}
+        <!-- Delete button -->
+        <button class="btn btn-sm btn-outline-danger"
+                hx-delete="{% url 'quote_delete' quote.id %}"
+                hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+                hx-target="#quote-{{ quote.id }}"
+                hx-swap="outerHTML">
+            🗑️ Delete
+        </button>
+    </div>
+</li>

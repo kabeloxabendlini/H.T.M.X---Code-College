@@ -1,0 +1,11 @@
+*.pyc
+__pycache__
+db.sqlite3
+notes*.txt
+
+
+# ---- Environment & Secrets ----
+*.env
+.env.*
+!example.env   # keep a sample env if you want
+person_env/
