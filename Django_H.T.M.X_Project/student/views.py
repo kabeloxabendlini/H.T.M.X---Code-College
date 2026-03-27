@@ -68,6 +68,3 @@ def delete_student(request, student_pk):
     student.delete()
     return HttpResponse()
     
-
-
-
