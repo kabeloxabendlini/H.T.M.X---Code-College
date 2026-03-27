@@ -8,3 +8,4 @@ notes*.txt
 *.env
 .env.*
 !example.env   # keep a sample env if you want
+person_env/
