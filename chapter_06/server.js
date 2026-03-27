@@ -1,3 +1,44 @@
+// 📖 Chapter 6: Show Edit Form and Update
+// 🎯 Goal of this chapter
+
+// Teach you how to edit existing data inline without a full page reload.
+
+// Use HTMX to dynamically show an edit form when a user clicks an "Edit" button.
+
+// Let users update data directly on the same page, and immediately display the new values.
+
+// 🛠 What you’ll learn
+
+// How to reveal an edit form dynamically
+
+// Example: You have a list of quotes or users.
+
+// When you click “Edit,” HTMX fetches and swaps in an edit form (instead of taking you to a new page).
+
+// Swapping HTML with HTMX
+
+// Using attributes like:
+
+// hx-get → fetch the form from the server
+
+// hx-target → specify where the form should appear
+
+// hx-swap="outerHTML" → replace the clicked item with the form
+
+// Submitting the update
+
+// The edit form uses hx-put or hx-post to send updated data to the server.
+
+// The response replaces the form with the updated content (e.g., the new quote text).
+
+// Keeping it seamless
+
+// No page reloads.
+
+// No heavy JavaScript.
+
+// The user edits and sees results instantly.
+
 // Import the Express framework
 import express from 'express';
 
