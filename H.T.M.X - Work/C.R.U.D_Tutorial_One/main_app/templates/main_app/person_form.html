@@ -1,0 +1,50 @@
+<!-- main_app/templates/main_app/person_form.html -->
+<li id="person-{{ person.id }}" class="list-group-item">
+  <form hx-post="{% url 'person_update' person.id %}"
+        hx-target="#person-{{ person.id }}"
+        hx-swap="outerHTML"
+        enctype="multipart/form-data"
+        class="row g-2">
+    {% csrf_token %}
+    <div class="col-md-4">
+      <input type="text" name="name" value="{{ person.name }}" class="form-control" required>
+    </div>
+    <div class="col-md-4">
+      <input type="email" name="email" value="{{ person.email }}" class="form-control" required>
+    </div>
+    <div class="col-md-4">
+      <input type="text" name="phone" value="{{ person.phone }}" class="form-control" required>
+    </div>
+    <div class="col-md-4">
+      <input type="text" name="major" value="{{ person.major }}" class="form-control">
+    </div>
+    <div class="col-md-4">
+      <input type="file" name="profile_image" class="form-control" id="editProfileImageInput-{{ person.id }}">
+      <div class="mt-2 text-center">
+        {% if person.profile_image %}
+          <img id="editProfileImagePreview-{{ person.id }}" src="{{ person.profile_image.url }}" class="img-thumbnail" width="100">
+        {% else %}
+          <img id="editProfileImagePreview-{{ person.id }}" src="" class="img-thumbnail d-none" width="100">
+        {% endif %}
+      </div>
+    </div>
+    <div class="col-md-4 d-grid">
+      <button type="submit" class="btn btn-success btn-sm">💾 Save</button>
+    </div>
+  </form>
+
+  <script>
+    document.getElementById("editProfileImageInput-{{ person.id }}").addEventListener("change", function (event) {
+      const preview = document.getElementById("editProfileImagePreview-{{ person.id }}");
+      const file = event.target.files[0];
+      if (file) {
+        preview.src = URL.createObjectURL(file);
+        preview.classList.remove("d-none");
+      } else {
+        preview.src = "";
+        preview.classList.add("d-none");
+      }
+    });
+  </script>
+</li>
+

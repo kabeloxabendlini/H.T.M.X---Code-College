@@ -1,0 +1,25 @@
+**/__pycach# Virtual environments
+person_env/
+*_env/
+venv/
+.env/
+env/
+
+# Environment variables
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyd
+
+# Django
+*.sqlite3
+media/
+
+# OS
+.DS_Store
+Thumbs.dbe__
+
+# node_modules
+node_modules
